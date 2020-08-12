@@ -59,14 +59,14 @@ bool findPimples(Mat img)
 		}
 
 	}
-
+	//githupì—ì„œ ìˆ˜ì •í•˜ì˜€ìŠµë‹ˆë‹¤.
 	//putText(img, format("%d", pimplescount), Point(50, 30), FONT_HERSHEY_SIMPLEX, 0.8, Scalar(255, 255, 0), 2);
-	imshow("pimples dedector", img);//copyimg ¿øº»ÀÌ¹ÌÁö, img ¿©µå¸§Ã¼Å·ÀÌ¹ÌÁö, img_th ÀÌÁøÈ­ÀÌ¹ÌÁö, img_result °á°ú ÀÌ¹ÌÁö
+	imshow("pimples dedector", img);//copyimg ì›ë³¸ì´ë¯¸ì§€, img ì—¬ë“œë¦„ì²´í‚¹ì´ë¯¸ì§€, img_th ì´ì§„í™”ì´ë¯¸ì§€, img_result ê²°ê³¼ ì´ë¯¸ì§€
 
 	cvtColor(img, img_gy, COLOR_BGR2GRAY);
 	threshold(img_gy, img_th, 0, 255, 1);
 
-	inpaint(img, img_th, inpaint_img_result, 15, INPAINT_TELEA); //circular neighborhoodÀÇ radius, 15
+	inpaint(img, img_th, inpaint_img_result, 15, INPAINT_TELEA); //circular neighborhoodì˜ radius, 15
 	fastNlMeansDenoisingColored(inpaint_img_result, denosing_img_result, 3, 3, 7, 21);//3,3,7,21
 	imshow("denosing_img_result", denosing_img_result);
 	//imshow("img_th", img_th);
@@ -86,7 +86,7 @@ int main()
 	}
 	copyimg = src.clone();
 
-	imshow("¿øº»ÀÌ¹ÌÁö", copyimg);
+	imshow("ì›ë³¸ì´ë¯¸ì§€", copyimg);
 	findPimples(src);
 
 	waitKey(0);
@@ -184,12 +184,12 @@ bool findPimples(Mat img)
 	}
 
 	//putText(img, format("%d", pimplescount), Point(50, 30), FONT_HERSHEY_SIMPLEX, 0.8, Scalar(255, 255, 0), 2);
-	imshow("pimples dedector", img);//copyimg ¿øº»ÀÌ¹ÌÁö, img ¿©µå¸§Ã¼Å·ÀÌ¹ÌÁö, img_th ÀÌÁøÈ­ÀÌ¹ÌÁö, img_result °á°ú ÀÌ¹ÌÁö
+	imshow("pimples dedector", img);//copyimg ì›ë³¸ì´ë¯¸ì§€, img ì—¬ë“œë¦„ì²´í‚¹ì´ë¯¸ì§€, img_th ì´ì§„í™”ì´ë¯¸ì§€, img_result ê²°ê³¼ ì´ë¯¸ì§€
 
 	cvtColor(img, img_gy, COLOR_BGR2GRAY);
 	threshold(img_gy, img_th, 0, 255, 1);
 
-	inpaint(img, img_th, inpaint_img_result, 15, INPAINT_TELEA); //circular neighborhoodÀÇ radius, 15
+	inpaint(img, img_th, inpaint_img_result, 15, INPAINT_TELEA); //circular neighborhoodì˜ radius, 15
 	fastNlMeansDenoisingColored(inpaint_img_result, denosing_img_result, 3, 3, 7, 21);//3,3,7,21
 	imshow("denosing_img_result", denosing_img_result);
 	//imshow("img_th", img_th);
@@ -216,7 +216,7 @@ int main()
 	Mat image = imread("pimples.jpg", 1);
 	Mat second_image = imread("darkcircle4.jpg", 1);
 	Mat second_result_image;
-	copyimg = image.clone();//¿øº»ÀÌ¹ÌÁö º¹»ç
+	copyimg = image.clone();//ì›ë³¸ì´ë¯¸ì§€ ë³µì‚¬
 	Mat gray = preprocessing(image);
 	
 	vector<Rect> faces, eyes;
@@ -225,7 +225,7 @@ int main()
 	imshow("second_result_image", second_result_image);
 	if (faces.size() > 0)
 	{
-		//¾ó±¼ °ËÃâ==----------------------------------------------------------------
+		//ì–¼êµ´ ê²€ì¶œ==----------------------------------------------------------------
 		eyes_cascade.detectMultiScale(gray(faces[0]), eyes, 1.15, 7, 0, Size(25, 20));
 		
 		Point2d face_center = calc_center(faces[0]);
@@ -234,11 +234,11 @@ int main()
 		detect_hair(face_center, faces[0], sub_obj);
 		rectangle(image, sub_obj[2], Scalar(0, 0, 0), 1);
 
-	    //Æ¯Á¤ºÎºĞ °ËÃâ---------------------------------------------------------------
-		Mat roi_image(image, sub_obj[2]);//roi ÀÌ¹ÌÁö
+	    //íŠ¹ì •ë¶€ë¶„ ê²€ì¶œ---------------------------------------------------------------
+		Mat roi_image(image, sub_obj[2]);//roi ì´ë¯¸ì§€
 	    //---------------------------------------------------------------------------
-		//imshowÀÚ¸®
-		imshow("¿øº»ÀÌ¹ÌÁö", copyimg);
+		//imshowìë¦¬
+		imshow("ì›ë³¸ì´ë¯¸ì§€", copyimg);
 		imshow("face_detection_result", image);
 		imshow("roi_result", roi_image);
 		findPimples(roi_image);
@@ -264,7 +264,7 @@ int main()
 	//
 	if (faces.size() > 0)
 	{
-		//¾ó±¼ °ËÃâ==----------------------------------------------------------------
+		//ì–¼êµ´ ê²€ì¶œ==----------------------------------------------------------------
 		eyes_cascade.detectMultiScale(gray(faces[0]), eyes, 1.15, 7, 0, Size(25, 20));
 
 		Point2d face_center = calc_center(faces[0]);
@@ -273,12 +273,12 @@ int main()
 		detect_hair(face_center, faces[0], sub_obj);
 		rectangle(second_image, sub_obj[2], Scalar(0, 0, 0), 1);
 
-		//Æ¯Á¤ºÎºĞ °ËÃâ---------------------------------------------------------------
-		Mat roi_image(second_image, sub_obj[2]);//roi ÀÌ¹ÌÁö
+		//íŠ¹ì •ë¶€ë¶„ ê²€ì¶œ---------------------------------------------------------------
+		Mat roi_image(second_image, sub_obj[2]);//roi ì´ë¯¸ì§€
 		//---------------------------------------------------------------------------
 		DarkCircle(roi_image, second_result_image);
-		//imshowÀÚ¸®
-		//imshow("¿øº»ÀÌ¹ÌÁö", copyimg);
+		//imshowìë¦¬
+		//imshow("ì›ë³¸ì´ë¯¸ì§€", copyimg);
 		//imshow("face_detection_result", second_image);
 		//imshow("roi_result", roi_image);
 		//imshow("second_result_image", second_result_image);
